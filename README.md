@@ -12,4 +12,4 @@
 
 Диаграмма классов
 
-****![image](https://github.com/user-attachments/assets/f60211e6-3443-4343-a109-d156573bbbd5)
+![image](https://github.com/user-attachments/assets/f60211e6-3443-4343-a109-d156573bbbd5)
