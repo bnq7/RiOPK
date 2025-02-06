@@ -145,7 +145,7 @@ public class ResourceControllerIntegrationTest {
         mockMvc.perform(delete("/api/resources/{id}", testResource.getId()))
                 .andExpect(status().isNoContent());
 
-        Optional<Resource> deletedResource = resourceRepository.findById(testResource.getId());
+        Optional  deletedResource = resourceRepository.findById(testResource.getId());
         // Проверяем, что ресурс был удален
         assert deletedResource.isEmpty();
     }
@@ -156,4 +156,36 @@ public class ResourceControllerIntegrationTest {
                 .andExpect(status().isNotFound());
     }
 }
+
+<h1>Пользовательский интерфейс</h1>
+
+<h2>User-flow диаграммы</h2>
+
+![image](https://github.com/user-attachments/assets/992bf75f-14ed-4bfb-8019-09b730500025)
+
+User Flow для пользователя
+
+![image](https://github.com/user-attachments/assets/957e76a8-a716-4e11-8013-8e6e02ee2022)
+
+User Flow для администратора
+
+<h2>Примеры экранов UI</h2>
+
+![image](https://github.com/user-attachments/assets/e034208b-492e-4cbb-bcd7-e2c1ebf16f32)
+
+Главная страница
+
+![image](https://github.com/user-attachments/assets/498b34ed-9afc-48fe-bd52-7d967a12b952)
+
+Профиль пользователя
+
+![image](https://github.com/user-attachments/assets/b9f0573c-22a0-4b63-8769-7904cb62fad7)
+
+Ввод сайта
+
+![image](https://github.com/user-attachments/assets/5dc4820f-c3e2-483a-b7c7-6108c3be2fb9)
+
+Выбор оценки
+
+
 
