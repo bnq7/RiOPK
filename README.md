@@ -187,5 +187,129 @@ User Flow для администратора
 
 Выбор оценки
 
+системы управления зависимостями Maven.
+
+https://github.com/bnq7/RiOPK/blob/main/webresources/123/pom.xml
+
+![image](https://github.com/user-attachments/assets/58b9857b-4c1e-4f1b-a8f0-3780da7841de)
+
+Пример JWT
+
+https://github.com/bnq7/RiOPK/blob/main/webresources/123/src/main/java/com/webresources/config/JwtUtil.java
+
+![image](https://github.com/user-attachments/assets/384c09a6-1c61-4ff8-b7d8-075bf1cf71ec)
+
+наличие токена в каждом запросе(JWT)
+
+https://github.com/bnq7/RiOPK/blob/main/webresources/123/src/main/java/com/webresources/config/JwtAuthenticationFilter.java
+
+![image](https://github.com/user-attachments/assets/83dc3858-e41f-4a77-8956-4521a3233ecc)
+
+Docker
+
+https://github.com/bnq7/RiOPK/blob/main/webresources/123/src/Dockerfile
+
+https://github.com/bnq7/RiOPK/blob/main/webresources/123/src/docker-compose.yml
+
+1 Docker Engine: основной движок, который управляет контейнерами и обеспечивает их выполнение. Он состоит из демона Docker, REST API и командной строки Docker CLI.
+2 Docker Images: образы, которые содержат все необходимое для работы приложения, включая операционную систему, исполняемые файлы, зависимости и настройки. Образы являются основой для создания контейнеров.
+3 Docker Containers: изолированные среды, которые запускаются на основе образов. Они обеспечивают безопасность и консистентность работы приложений независимо от окружения, в котором они развернуты.
+4 Docker Compose: инструмент, который позволяет определять и запускать многоконтейнерные приложения с помощью конфигурационного файла docker-compose.yml. С его помощью можно описывать взаимосвязи между сервисами, порты, сетевые настройки и переменные окружения.
+Использование Docker упрощает управление зависимостями, так как весь необходимый код и библиотеки поставляются вместе с приложением в контейнере. Это делает разработку более надежной и гарантирует, что приложение будет работать одинаково на любой машине, будь то сервер разработчика, тестовая среда или продакшн. Docker также значительно упрощает процесс масштабирования и управления большими распределенными системами.
+
+Скрипт файла docker-compose.yml:
+
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: appdb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  api:
+    image: openjdk:17-jdk-slim
+    container_name: spring-api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/appdb
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  Client:
+    image: node:18-alpine
+    container_name: react-client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    depends_on:
+      - api
+
+volumes:
+  db_data:
+
+Dockerfile для Spring Boot (Java):
+
+# Этап сборки
+FROM openjdk:17-jdk-slim AS build
+WORKDIR /src
+Copy . .
+RUN ./mvnw clean package -DskipTests
+
+# Этап выполнения
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+COPY --from=build /src/target/*.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
+Docker file для React-приложения:
+
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+Copy . .
+EXPOSE 3000
+CMD ["npm", "start"]
+
+Теперь вы можете развернуть все службы с помощью команды:
+
+docker-compose up –build
+
+	Чтобы остановить контейнер и удалить контейнер необходимо написать команду:
+
+docker-compose down
+	Чтобы просто остановить контейнер необходимо написать команду:
+
+docker-compose stop
+
+         В результате выполнения лабораторной работы были изучены и применены методы развертывания программного обеспечения с использованием современных инструментов автоматизации. Мы детально рассмотрели процесс подготовки окружения, создания скриптов для разворачивания приложений и настройки необходимых компонентов инфраструктуры. Практическая часть включала создание и настройку Docker-композиций для интеграции различных сервисов, таких как клиент на React, API на Java (Spring Boot) и база данных MySQL.
+
+
+
+
+
+
+
 
 
