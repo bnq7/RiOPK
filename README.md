@@ -35,141 +35,14 @@
 
 спецификация OpenAPI
 
-OpenAPI: 3.0.0
-info:
-  title: Оценка интернет-ресурсов API
-  description: API для анализа качества и функциональности веб-сайтов, включая производительность, безопасность, удобство использования и содержание.
-  version: 1.0.0
-servers:
-  - url: http://localhost:8080/api/v1
-paths:
-  /sites:
-    GET:
-      summary: Получить список всех сайтов для анализа
-      description: Получить список всех сайтов, которые будут проанализированы.
-      responses:
-        '200':
-          description: Список сайтов
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    ID:
-                      type: integer
-                      example: 1
-                    name:
-                      type: string
-                      example: "example.com"
-                    url:
-                      type: string
-                      example: "https://www.example.com"
-    post:
-      summary: Добавить новый сайт для анализа
-      description: Добавить новый сайт для оценки.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  example: "example.com"
-                url:
-                  type: string
-                  example: "https://www.example.com"
-      responses:
-        '201':
-          description: Сайт успешно добавлен для анализа
-        '400':
-          description: Некорректный запрос
+![image](https://github.com/user-attachments/assets/7c36e9fc-ba96-473e-b339-5cace1989f95)
 
-  /sites/{id}/analysis:
-    GET:
-      summary: Получить результаты анализа сайта
-      description: Получить результаты анализа функциональности, производительности, безопасности и других параметров сайта.
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: ID сайта
-          schema:
-            type: integer
-            example: 1
-      responses:
-        '200':
-          description: Результаты анализа сайта
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  performance:
-                    type: object
-                    properties:
-                      loadTime:
-                        type: integer
-                        example: 1200
-                      responseTime:
-                        type: integer
-                        example: 200
-                  Security:
-                    type: object
-                    properties:
-                      sslCertificate:
-                        type: string
-                        example: "Valid"
-                      vulnerabilities:
-                        type: array
-                        items:
-                          type: string
-                          example: "Open ports detected"
-                  usability:
-                    type: object
-                    properties:
-                      mobileFriendly:
-                        type: string
-                        example: "Yes"
-                      navigation:
-                        type: string
-                        example: "Easy"
-                  content:
-                    type: object
-                    properties:
-                      uniqueness:
-                        type: string
-                        example: "High"
-                      keywordOptimization:
-                        type: string
-                        example: "Good"
-        '404':
-          description: Сайт не найден
-          
-  /analysis/ranking:
-    GET:
-      summary: Получить рейтинг всех сайтов
-      description: Получить сравнительный рейтинг всех сайтов на основе выбранных критериев.
-      responses:
-        '200':
-          description: Рейтинг сайтов
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    siteName:
-                      type: string
-                      example: "example.com"
-                    overallRating:
-                      type: number
-                      format: float
-                      example: 8.7
+![image](https://github.com/user-attachments/assets/900df417-e692-41a1-8a1e-6be1e68b302b)
+
+![image](https://github.com/user-attachments/assets/a171a6e3-9fbb-4cdb-b716-69ea2a0bf521)
+
+
+
 
 
 Результаты расчетов в SonarCube
