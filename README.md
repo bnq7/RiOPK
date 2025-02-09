@@ -25,7 +25,9 @@
 
 Диаграмма последовательности
 
-![image](https://github.com/user-attachments/assets/433cc0af-e196-4e3d-901d-9f3ac1e38d83)
+
+![image](https://github.com/user-attachments/assets/013464e5-1a2a-411b-9a2a-fe297308bdb6)
+
 
 Диаграмма вариантов использования
 
