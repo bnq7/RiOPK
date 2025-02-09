@@ -217,6 +217,13 @@ https://github.com/bnq7/RiOPK/blob/main/webresources/123/src/main/java/com/webre
 
 ![image](https://github.com/user-attachments/assets/384c09a6-1c61-4ff8-b7d8-075bf1cf71ec)
 
+конфигурация Spring Security для интеграции JWT
+
+https://github.com/bnq7/RiOPK/blob/main/webresources/123/src/main/java/com/webresources/config/SecurityConfig.java
+
+![image](https://github.com/user-attachments/assets/3f49014a-140b-4016-9368-dcc12778b84d)
+
+
 наличие токена в каждом запросе(JWT)
 
 https://github.com/bnq7/RiOPK/blob/main/webresources/123/src/main/java/com/webresources/config/JwtAuthenticationFilter.java
