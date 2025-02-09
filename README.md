@@ -232,13 +232,11 @@ https://github.com/bnq7/RiOPK/blob/main/webresources/123/src/main/java/com/webre
 
 Docker
 
-Скрипт файла docker-compose.yml:
-
-
 https://github.com/bnq7/RiOPK/blob/main/webresources/123/src/Dockerfile
 
 ![image](https://github.com/user-attachments/assets/dd1f08da-60ea-48e4-ae7d-690fc772561a)
 
+Скрипт файла docker-compose.yml:
 
 https://github.com/bnq7/RiOPK/blob/main/webresources/123/src/docker-compose.yml
 
