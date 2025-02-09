@@ -35,11 +35,14 @@
 
 спецификация OpenAPI
 
-![image](https://github.com/user-attachments/assets/7c36e9fc-ba96-473e-b339-5cace1989f95)
+![image](https://github.com/user-attachments/assets/bf1fcc1f-1549-4e99-96f3-7ccef2b0ea18)
 
-![image](https://github.com/user-attachments/assets/900df417-e692-41a1-8a1e-6be1e68b302b)
 
-![image](https://github.com/user-attachments/assets/a171a6e3-9fbb-4cdb-b716-69ea2a0bf521)
+![image](https://github.com/user-attachments/assets/0cd264c5-2b73-46ab-8dcb-945b0e876a90)
+
+
+![image](https://github.com/user-attachments/assets/1633670e-f3f6-46c4-8a36-5be54aa4aa25)
+
 
 
 
