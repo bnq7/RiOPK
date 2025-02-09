@@ -173,7 +173,8 @@ public class ResourceControllerIntegrationTest {
 
 <h2>User-flow диаграммы</h2>
 
-![image](https://github.com/user-attachments/assets/992bf75f-14ed-4bfb-8019-09b730500025)
+![image](https://github.com/user-attachments/assets/0689a509-7208-44c7-9d37-b634859cc5fd)
+
 
 User Flow для пользователя
 
