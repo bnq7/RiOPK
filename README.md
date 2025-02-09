@@ -178,7 +178,8 @@ public class ResourceControllerIntegrationTest {
 
 User Flow для пользователя
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/228e0232-abb7-40f6-91b5-c62b02a6fac1)
+
 
 
 User Flow для администратора
