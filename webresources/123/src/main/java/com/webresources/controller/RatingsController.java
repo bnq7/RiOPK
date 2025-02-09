@@ -12,8 +12,15 @@ public class RatingsController extends Attributes {
 
     @GetMapping
     public String ratings(Model model) {
+    
         AddAttributes(model);
+
+   
+        model.addAttribute("controllerInfo", "Этот маршрут принадлежит контроллеру RatingsController с роутом /ratings");
+
         model.addAttribute("ratings", scoreRepo.findAll());
+
+    
         return "ratings";
     }
 }
