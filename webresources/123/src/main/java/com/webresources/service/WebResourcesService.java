@@ -43,18 +43,19 @@ public class WebResourceService {
         });
     }
 
-    public Optional<Rating> rateResource(Long resourceId, Long userId) {
-        return webResourceRepo.findById(resourceId).flatMap(resource -> {
-            if (ratingRepo.findByResource_IdAndUser_Id(resourceId, userId) == null) {
-                Rating rating = new Rating(resource, userId);
-                return Optional.of(ratingRepo.save(rating));
-            }
-            return Optional.empty();
+    public Optional<WebResource> analyzeResource(Long id) {
+        return webResourceRepo.findById(id).map(resource -> {
+       
+            return resource;
         });
+    }
+
+    public List<WebResource> getRankedResources() {
+
+        return webResourceRepo.findAll();
     }
 
     public ResourceStatus[] getAllStatuses() {
         return ResourceStatus.values();
     }
 }
-
